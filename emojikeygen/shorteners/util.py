@@ -1,7 +1,7 @@
 ## Utility functions for shortening functions
 import random
 
-import alphabet
+from emojikeygen.shorteners import alphabet
 import baseconvert
 
 def generate_random_list(length):

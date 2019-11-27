@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
-from emojikeygen.resources.foo import Foo
+from emojikeygen.resources.shorten import Shorten
 
 # Create app, load config
 app = Flask(__name__)
@@ -16,4 +16,5 @@ with app.app_context():
 
 # Create routes
 api = Api(app)
-api.add_resource(Foo, '/Foo', '/Foo/aa')
+api.add_resource(Shorten, '/emojikey', '/emojikey/<string:emojikey>')
+

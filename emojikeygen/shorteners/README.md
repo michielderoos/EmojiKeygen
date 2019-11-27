@@ -1,7 +1,7 @@
 # Shorteners  
 When I got this challenge, I was fixated on this part of the problem-- how to actually shorten the secrets. I came up with a few different solutions, as outlined below.   
 *Note: all of the emoji strategies are using an alphabet of 29 emojis as defined in alphabet.py*
-## Strategy 1 - Generate Key with Hash of Emoji Sequence (emojiHash):  
+## Strategy 1 - Generate Key with Hash of Emoji Sequence (emojihash):  
 This strategy has the advantage of returning a relatively short emoji sequence which is mostly random (Will explain further in steps), will never face collisions, and is still relatively secure (depending on desired token string length). On top of these advantages, this approach allows us to convert from emoji sequence to Private-Key **without the need of a database.**  
 The key this generates is formatted as such (Hyphens are only present for illustrative purposes and will not be found in real output):
 🦔-🐈-🦅🐈🦆🐳🦊
