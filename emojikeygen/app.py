@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
+from emojikeygen.models import db, keys
 
 from emojikeygen.resources.shorten import Shorten
 
@@ -9,7 +10,6 @@ app = Flask(__name__)
 app.config.from_pyfile("config.py")
 
 # Set up database
-db = SQLAlchemy()
 db.init_app(app)
 with app.app_context():
     db.create_all()

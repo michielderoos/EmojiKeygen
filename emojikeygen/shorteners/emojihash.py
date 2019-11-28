@@ -11,13 +11,13 @@ def generate(index, random_sequence_length = config.DEFAULT_RANDOM_SEQUENCE_LENG
     """Generates emoji sequence and private key"""
     index_sequence = util.int_to_list(index, shorten_base = True)
     random_sequence = util.generate_random_list(random_sequence_length)
-    emoji_sequence = util.list_to_emoji_string(index_sequence) + alphabet.sentinel + util.list_to_emoji_string(random_sequence)
-    return {'emoji_sequence': emoji_sequence, 'private_key': generate_key(emoji_sequence)}
+    emojikey = util.list_to_emoji_string(index_sequence) + alphabet.sentinel + util.list_to_emoji_string(random_sequence)
+    return emojikey, generate_key(emojikey)
 
-def generate_key(emoji_sequence):
-    """Generates key when given emoji sequence. Used by generate function, but can also be used to decode any given emoji sequence"""
-    peppered_emoji_sequence = emoji_sequence + config.PEPPER
+def generate_key(emojikey):
+    """Generates key when given emojikey. Used by generate function, but can also be used to decode any given emojikey"""
+    peppered_emojikey = emojikey + config.PEPPER
     hash = hashlib.sha256()
-    hash.update(peppered_emoji_sequence.encode('utf-8'))
+    hash.update(peppered_emojikey.encode('utf-8'))
     return hash.hexdigest()
 

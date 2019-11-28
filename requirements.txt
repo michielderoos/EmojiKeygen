@@ -1,0 +1,6 @@
+cryptography
+sqlalchemy_utils
+flask
+flask_restful
+baseconvert
+flask_sqlalchemy
