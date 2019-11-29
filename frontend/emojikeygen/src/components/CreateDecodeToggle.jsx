@@ -15,7 +15,6 @@ class CreateDecodeToggle extends Component{
 	}
 
 	render(){
-		const { values } = this.props;
 		return(
 			<Form >
 				<h1 className="ui centered">Would you like to Create or Decode?</h1>

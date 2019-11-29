@@ -11,7 +11,6 @@ class CreateStrategy extends Component{
     }
 
     render(){
-        const { values } = this.props;
         return(
             <Form >
                 <h1 className="ui centered">Which shortening strategy would you like to employ?</h1>

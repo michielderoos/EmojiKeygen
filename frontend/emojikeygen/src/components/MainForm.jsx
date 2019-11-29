@@ -26,7 +26,7 @@ class MainForm extends Component {
 		const values = { name, strategy, emojikey };
 		switch(step) {
 		// Start step. Choose whether to create a new sequence, or find out who owns an existing one
-		case 'start':
+		default:
 			return <CreateDecodeToggle 
 					setStep={this.setStep} 
 					values={values}
