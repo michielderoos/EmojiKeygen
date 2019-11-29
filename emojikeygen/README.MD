@@ -21,7 +21,8 @@ DATABASE_ENCRYPTION_KEY - We encrypt private keys before storing them, and this 
 
 DEFAULT_RANDOM_SEQUENCE_LENGTH - This is how many emojis we generate for the emojihash strategy
 ```
-
+ 
 ### Shorteners: 
 Emojikeygen supports multiple strategies to create sequence/key pairs  
 See [shorteners/README.md](shorteners/README.md) for more detail on these.
+
