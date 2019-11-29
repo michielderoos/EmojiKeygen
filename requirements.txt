@@ -4,3 +4,4 @@ flask
 flask_restful
 baseconvert
 flask_sqlalchemy
+flask_cors
