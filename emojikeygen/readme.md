@@ -4,8 +4,8 @@ This is the API portion of the emojikeygen project.
 
 ## Instructions to run locally  
   
-- Install requirements (`pip3 install -r requirements.txt`)
-- Run `flask run`
+- Install requirements (`pip3 install -r requirements.txt`) from the root directory
+- Run `flask run` in this directory
 - That's it! The backend should now be live on port 5000
 
 ## Details  
