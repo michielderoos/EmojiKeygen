@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Emojikeygen API  
 
-## Available Scripts
+This is the frontend of the emojikeygen project. 
 
-In the project directory, you can run:
+## Instructions to run locally  
+The frontend working is dependent on the API being live. To start the API locally, please consult the API's [README.md](../../emojikeygen/README.md)  
+- Run `npm start`
+- That's it! The frontend should now be live and accessible on port 3000  
 
-### `npm start`
+(note: If you're not running this locally, you'll want to alter config.js to point to wherever you're hosting the backend)
+## Details  
+The way this is structured, is that we have a base component called `MainForm` which manages state. `MainForm` starts by loading `CreateDecodeToggle`, which allows the user to decide between the distinct 'create' and 'decode' flows.   
+![](https://i.imgur.com/3ehtyD3.png)
+### Create Flow: 
+#### CreateStrategy: 
+CreateStrategy is the first component to be loaded in the create flow. This allows the user to choose how they want to shorten their key.  
+![](https://i.imgur.com/GheRtfq.png)  
+  
+#### CreateName: 
+CreateName is the component where the user enters their name, and it will alert() the user with an error if they do not enter a name. CreateName also submits the name to the emojikeygen API, and checks the result for errors. If there is an API error, the user is free to try again as well.
+![](https://i.imgur.com/0svtMUI.png)  
+  
+#### CreateFinal:
+This is the final step in the create flow. Here we just return the generated emoji sequence to the user.   
+![](https://i.imgur.com/r2kfFiE.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Decode Flow: 
+#### DecodeSequence:
+Similar to CreateName, here the user enters their sequence and it's sent to the server where the name associated with the sequence is looked up.  
+![](https://i.imgur.com/8xX9lIu.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### DecodeFinal:
+This is the final step in the create flow. Here we just return sequence's user name to the user.   
+![](https://i.imgur.com/4ILwv2s.png)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

@@ -12,4 +12,4 @@ class keys(db.Model):
     name = db.Column(db.String)
     strategy = db.Column(db.String)
     date_created = db.Column(db.DateTime, server_default=db.func.now())
-    key = db.Column(EncryptedType(db.Unicode, config.DATABASE_ENCRYPTION_PASSWORD, AesEngine, 'pkcs5'))
+    key = db.Column(EncryptedType(db.Unicode, config.DATABASE_ENCRYPTION_KEY, AesEngine, 'pkcs5'))

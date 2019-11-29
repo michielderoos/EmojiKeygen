@@ -1,6 +1,7 @@
 // UserDetails.jsx
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import config from '../config';
 
 class DecodeSequence extends Component{
 
@@ -10,7 +11,7 @@ class DecodeSequence extends Component{
 			return
 		}
 		e.preventDefault()
-		fetch(`http://127.0.0.1:5000/emojikey/${this.props.values.emojikey}`)
+		fetch(`${config.API_URL}/emojikey/${this.props.values.emojikey}`)
 			.then(resp => resp.json())
 			.then(respJson => {
 				if(!respJson.name){

@@ -1,6 +1,7 @@
 // UserDetails.jsx
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import config from '../config';
 
 class CreateName extends Component{
 	submit = (e) => {
@@ -9,7 +10,7 @@ class CreateName extends Component{
 			return
 		}
 		e.preventDefault()
-		fetch('http://127.0.0.1:5000/emojikey',
+		fetch(`${config.API_URL}/emojikey`,
 			{
 				method: 'POST',
 				headers: {'Content-Type': 'application/json'},
