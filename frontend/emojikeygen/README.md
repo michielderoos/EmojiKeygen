@@ -4,6 +4,7 @@ This is the frontend of the emojikeygen project.
 
 ## Instructions to run locally  
 The frontend working is dependent on the API being live. To start the API locally, please consult the API's [README.md](../../emojikeygen/README.md)  
+- Run `npm install`
 - Run `npm start`
 - That's it! The frontend should now be live and accessible on port 3000  
 

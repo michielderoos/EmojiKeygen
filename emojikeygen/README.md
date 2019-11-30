@@ -6,7 +6,23 @@ This is the API portion of the emojikeygen project.
   
 - Install requirements (`pip3 install -r requirements.txt`) from the root directory
 - Run `python app.py` from the root directory
-- That's it! The backend should now be live on port 5000
+- That's it! The backend should now be live on port 5000  
+
+## Endpoints  
+There's only one endpoint for this API, which you can GET or POST to depending on whether you're generating a key, or retrieving one.
+### Generation:  
+Endpoint: `/emojikey`   
+Method: POST
+Body: JSON (Example below)
+```
+{
+	"name": "Francine",
+	"strategy": "shortseq"
+}
+```  
+- `name` - Mandatory field, name of person requesting key  
+- `strategy` - How we shorten the key. This is optional.  
+ Options are `shortseq and `emojihash` (default)
 
 ## Details  
 The API is broken up into a few different components as detailed below
