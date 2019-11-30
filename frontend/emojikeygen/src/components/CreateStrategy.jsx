@@ -16,9 +16,11 @@ class CreateStrategy extends Component{
                 <h1 className="ui centered">Which shortening strategy would you like to employ?</h1>
                 <Button value='emojihash' onClick={this.submit}>EmojiHash</Button>
                 <Button value='shortseq' onClick={this.submit}>ShortSeq</Button>
+                <Button value='dracula' onClick={this.submit}>🧛</Button>
                 <div className="ui centered">
                     <h3>EmojiHash: Longer, more secure keys (E.g. 🦊🐍🐈🐈🐘🦃🦆🐫)<br/>
-                    ShortSeq: Shorter, but easier to remember keys (E.g. 🦊🐈🐍)
+                    ShortSeq: Shorter, but easier to remember keys (E.g. 🦊🐈🐍)<br/>
+                    🧛: Markov chain generated sentence based on Bram Stoker's Dracula
                     </h3>
                 </div>
             </Form>

@@ -1,8 +1,10 @@
 ## Utility functions for shortening functions
 import random
-
-from emojikeygen.shorteners import alphabet
+import hashlib
 import baseconvert
+
+from emojikeygen import config
+from emojikeygen.shorteners import alphabet
 
 def generate_random_list(length):
     """ Generates list of n random values between 0 and len(alphabet) (e.g. 3 => [4, 22, 21])"""
@@ -23,4 +25,11 @@ def list_to_emoji_string(a):
 def convert_emoji_string_to_list(es):
     """ Converts list of base29 to emoji string (e.g. '🦊🦘🐙' => [1, 22, 21]) """
     return list(map(lambda char: alphabet.alphabet.index(char), es))
-    
+
+def generate_key(emojikey, pepper = config.PEPPER):
+    """Generates key when given emojikey. Used by generate function, but can also be used to decode any given emojikey"""
+    peppered_emojikey = emojikey + pepper
+    hash = hashlib.sha256()
+    hash.update(peppered_emojikey.encode('utf-8'))
+    return hash.hexdigest()
+

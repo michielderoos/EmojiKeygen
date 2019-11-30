@@ -23,6 +23,7 @@ class CreateName extends Component{
 			.then(respJson => {
 				if(!respJson.emojikey){
 					alert(`Please try again! The server returned this error: ${JSON.stringify(respJson)}`)
+					return
 				}
 				this.props.setEmojikey(respJson.emojikey)
 			})
