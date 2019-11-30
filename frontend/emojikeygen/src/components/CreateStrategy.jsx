@@ -17,10 +17,12 @@ class CreateStrategy extends Component{
                 <Button value='emojihash' onClick={this.submit}>EmojiHash</Button>
                 <Button value='shortseq' onClick={this.submit}>ShortSeq</Button>
                 <Button value='dracula' onClick={this.submit}>🧛</Button>
+                <Button value='keyfirst' onClick={this.submit}>KeyFirst</Button>
                 <div className="ui centered">
                     <h3>EmojiHash: Longer, more secure keys (E.g. 🦊🐍🐈🐈🐘🦃🦆🐫)<br/>
                     ShortSeq: Shorter, but easier to remember keys (E.g. 🦊🐈🐍)<br/>
-                    🧛: Markov chain generated sentence based on Bram Stoker's Dracula
+                    🧛: Markov chain generated sentence based on Bram Stoker's Dracula<br/>
+                    KeyFirst: Generates a key first, then converts that key to emojis
                     </h3>
                 </div>
             </Form>

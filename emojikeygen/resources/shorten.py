@@ -1,11 +1,11 @@
 from flask_restful import Resource, reqparse, abort
 from sqlalchemy.sql.expression import func
 
-from emojikeygen.shorteners import emojihash, shortseq, markov
+from emojikeygen.shorteners import emojihash, shortseq, markov, keyfirst
 from emojikeygen.models import keys, db
 
 # Strategies we want to make available through the API
-strategies = {'emojihash': emojihash, 'shortseq': shortseq, 'dracula': markov}
+strategies = {'emojihash': emojihash, 'shortseq': shortseq, 'dracula': markov, 'keyfirst': keyfirst}
 
 class Shorten(Resource):
     def get(self, emojikey):
