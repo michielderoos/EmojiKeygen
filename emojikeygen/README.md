@@ -22,7 +22,7 @@ Body: JSON (Example below)
 ```  
 - `name` - Mandatory field, name of person requesting key  
 - `strategy` - How we shorten the key. This is optional.  
- Options are `shortseq and `emojihash` (default)
+ Options are `shortseq`, `dracula` and `emojihash` (default)
 
 ## Details  
 The API is broken up into a few different components as detailed below

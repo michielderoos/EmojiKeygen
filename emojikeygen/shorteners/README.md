@@ -26,3 +26,6 @@ Output: 0x 921e99d4292ba24fcb31e4f9233a9d2c93d48c3d0c4572692cd58c49c5934d47
 ```  
 ## Strategy 2 - Pure Sequential (shortseq):  
 This strategy is to take the as-short-as-possible goal to the extreme. Simply encode the index in base29, and that's your sequence! The first 29 generated sequences will only require one emoji to represent. The following 841 sequences will only require two, the next 24000 only three. This strategy is identical to Strategy 1, except the sentinel value and randomly generated portions of the sequence generation steps are skipped. 
+
+## Strategy 3 - Dracuka (markov):  
+Generates a random sentence using a Markov chain, and uses that as the key
