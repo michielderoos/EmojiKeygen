@@ -61,7 +61,6 @@ def move(chain, state, key, key_base):
 	if len(choices) > 1:
 		if key:
 			base_n_key = convert_variable_base(key, key_base, len(choices))
-			print(base_n_key[-1], len(choices))
 			return choices[base_n_key[-1]], base_n_key, len(choices)
 		else:
 			r = random.random() * cumdist[-1]
