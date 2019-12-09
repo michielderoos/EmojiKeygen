@@ -24,10 +24,6 @@ BEGIN = '___BEGIN__'
 END = '___END__'
 
 def accumulate(iterable, func=operator.add):
-	"""
-	Cumulative calculations. (Summation, by default.)
-	Via: https://docs.python.org/3/library/itertools.html#itertools.accumulate
-	"""
 	it = iter(iterable)
 	total = next(it)
 	yield total
@@ -35,13 +31,7 @@ def accumulate(iterable, func=operator.add):
 		total = func(total, element)
 		yield total
 
-def convert_variable_base2(key, input_base, output_base):
-	bc = baseconvert.BaseConverter(input_base=input_base, output_base=output_base)
-	converted = list(bc(key))
-	return converted
-
 def convert_variable_base(key, input_base, output_base):
-	#print(convert_variable_base2(key, input_base, 16))
 	bc = baseconvert.BaseConverter(input_base=input_base, output_base=output_base)
 	converted = list(bc(key))
 	return converted
@@ -61,9 +51,9 @@ def move(chain, state, key, key_base):
 	if len(choices) > 1:
 		if key:
 			base_n_key = convert_variable_base(key, key_base, len(choices))
-			return choices[base_n_key[-1]], base_n_key, len(choices)
+			return choices[base_n_key[0]], base_n_key, len(choices)
 		else:
-			r = random.random() * cumdist[-1]
+			r = random.random() * cumdist[0]
 			return choices[bisect.bisect(cumdist, r)], None, None
 	else:
 		return choices[0], key, key_base
@@ -79,6 +69,8 @@ def gen(key, chain, key_base = 16):
 		if not key:
 			complete = True
 		if key and key_base > 1:
+			print(key[0], key_base)
+
 			key.pop()
 		if next_word == END and complete: 
 			sentences += sentence
@@ -94,6 +86,7 @@ def gen(key, chain, key_base = 16):
 
 
 def decode(paragraph, chain):
+	# Decoder does not work yet!
 	numbers = []
 	bases = []
 	paragraph = markovify.split_into_sentences(phrase)
@@ -116,26 +109,10 @@ def decode(paragraph, chain):
 word_to_encode = '080464c7ea55dc3ef9b442dc888d18f5080464c7ea55dc3ef9b442dc888d18f5'.upper()
 phrase = gen(word_to_encode, text_model.chain)
 print(markovify.split_into_sentences(phrase))
-print('AAAZZZZZZZZZ-------------------------')
 count = 0
 for number, base in decode(phrase, text_model.chain):
 	print(number, base)
-	#print(convert_variable_base2(number, base, 16))
 	#num = convert_variable_base(number, base, 10)
 	#num = int(''.join([str(i) for i in num]))
 	#count += num
-print('AAAZZZZZZZZZ-------------------------')
-
-
-#k = "DEADBEEF"
-#o, bits = shorten_using_variable_base(k, 16, 9000)
-#o, bits = shorten_using_variable_base(o, 9000, 14, bits)
-#o, bits = shorten_using_variable_base(o, 14, 13, bits)
-#o, bits = shorten_using_variable_base(o, 13, 12, bits)
-#o, bits = shorten_using_variable_base(o, 12, 11, bits)
-#o, bits = shorten_using_variable_base(o, 11, 10, bits)
-#o, bits = shorten_using_variable_base(o, 11, 10, bits)
-#o, bits = shorten_using_variable_base(o, 10, 11, bits)
-#
-#print('ZZZZZZZZZZZZZZZZZZZZZZZZZZ')
 
